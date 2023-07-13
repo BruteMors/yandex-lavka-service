@@ -20,9 +20,7 @@
 Микросервис построен с использованием принципов Clean architecture и предоставляет HTTP API, 
 база данных построена на основе PostgresSQL.
 
-
-<img src="../yandex-lavka-service/internal/store/db_data_model/db_data_model.png">
-
+![DB architecture](https://github.com/BruteMors/yandex-lavka-service/raw/main/internal/store/db_data_model/db_data_model.png)
 
 ## Описание методов API
 
