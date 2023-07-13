@@ -1,0 +1,652 @@
+{
+	"info": {
+		"_postman_id": "f5a12dbd-0041-421a-b5aa-1760ba0602cd",
+		"name": "yandex-lavka-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21329473"
+	},
+	"item": [
+		{
+			"name": "courier",
+			"item": [
+				{
+					"name": "Add couriers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"couriers\": [\n        {\n            \"courier_type\": \"FOOT\",\n            \"regions\": [\n                1,\n                2,\n                3\n            ],\n            \"working_hours\": [\n                \"12:00-14:00\",\n                \"13:00-15:00\"\n            ]\n        },\n                {\n            \"courier_type\": \"BIKE\",\n            \"regions\": [\n                1,\n                2,\n                3\n            ],\n            \"working_hours\": [\n                \"12:00-14:00\",\n                \"13:00-15:00\"\n            ]\n        },\n\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/couriers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"couriers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "correct request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"couriers\": [\n        {\n            \"courier_type\": \"BIKE\",\n            \"regions\": [\n                1,\n                3,\n                4\n            ],\n            \"working_hours\": [\n                \"12:00-14:00\",\n                \"15:00-16:00\"\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/couriers",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"couriers"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "incorrect request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"couriers\": [\n        {\n            \"courier_type\": \"BIKE\",\n            \"regions\": [\n                1,\n                3,\n                4\n            ],\n            \"working_hours\": [\n                \"12:65-14:00\",\n                \"15:00-16:00\"\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/couriers",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"couriers"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get couriers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/couriers?limit=10&offset=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"couriers"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "without param",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/couriers",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"couriers"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "0",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "limit10, offset 0",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/couriers?limit=10&offset=0",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"couriers"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "limit10, offset 1000",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/couriers?limit=10&offset=1000",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"couriers"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get courier",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "correct request",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "incorrect request",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get courier meta info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/couriers/meta-info/1?start_date=2023-05-01&end_date=2023-05-02",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"couriers",
+								"meta-info",
+								"1"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-05-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-05-02"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "valid request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/couriers/meta-info/2?start_date=2023-04-01&end_date=2023-06-01",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"couriers",
+										"meta-info",
+										"2"
+									],
+									"query": [
+										{
+											"key": "start_date",
+											"value": "2023-04-01"
+										},
+										{
+											"key": "end_date",
+											"value": "2023-06-01"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "Add orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orders\": [\n    {\n      \"weight\": 5,\n      \"regions\": 1,\n      \"delivery_hours\": [\n        \"16:10-16:20\"\n      ],\n      \"cost\": 7\n    },\n        {\n      \"weight\": 5,\n      \"regions\": 1,\n      \"delivery_hours\": [\n        \"16:10-16:20\"\n      ],\n      \"cost\": 7\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "correct request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"orders\": [\n    {\n      \"weight\": 5,\n      \"regions\": 1,\n      \"delivery_hours\": [\n        \"16:10-16:20\"\n      ],\n      \"cost\": 7\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/orders",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "incorrect request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"orders\": [\n    {\n      \"weight\": 5,\n      \"regions\": 1,\n      \"delivery_hours\": [\n        \"16:80-16:20\"\n      ],\n      \"cost\": 7\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/orders",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders?limit=10&offset=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "without param",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/orders",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "limit10, offset 0",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/orders?limit=10&offset=0",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "limit10, offset 1000",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/orders?limit=10&offset=1000",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "correct request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/orders/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "incorrect request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/orders/d",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders",
+										"d"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/orders/1000",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders",
+										"1000"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Complete orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"complete_info\": [\n    {\n      \"courier_id\": 1,\n      \"order_id\": 1,\n      \"complete_time\": \"2023-04-30T11:25:43.022Z\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/orders/complete",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

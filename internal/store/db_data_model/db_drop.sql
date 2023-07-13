@@ -1,0 +1,1 @@
+DROP DATABASE yandex_lavka_db;
